@@ -9,7 +9,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
+        with:
+          fetch-depth: 2
       - name: Setup
         uses: ./.github/actions/setup
 
@@ -41,7 +42,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      
+
       - name: Setup
         uses: ./.github/actions/setup
 
@@ -50,13 +51,13 @@ jobs:
         with:
           storage-provider: local
           storage-path: turbo-cache
-      
+
       - name: Ensure environmental variables have been set correctly
         run: |
           echo $TURBO_API | grep -P "^http://0.0.0.0:\d+$"
           echo $TURBO_TOKEN | grep -P "^[a-zA-Z0-9]{48}$"
           echo $TURBO_TEAM | grep -P "^ci$"
-      
+
       - name: Run turbo:test with turbo and expect no cache
         run: |
           # Expect no cache entries
@@ -66,7 +67,7 @@ jobs:
 
           # Expect a single cache entry
           [ $(find /tmp/turbo-cache/ci -type f | wc -l) -eq 1 ] || exit 1
-      
+
       - name: Rerun turbo:test with turbo and expect cache to be used
         run: |
           pnpm turbo turbo:test > /tmp/turbo-output
@@ -82,7 +83,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      
+
       - name: Setup
         uses: ./.github/actions/setup
 
@@ -93,7 +94,7 @@ jobs:
         with:
           storage-provider: asdf
           storage-path: asdf
-      
+
       - name: Error if prior step succeeded
         if: steps.run-turbo.outcome == 'success'
         run: exit 1
