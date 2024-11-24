@@ -18,17 +18,10 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - name: Get token
-        uses: actions/create-github-app-token@v1
-        id: app-token-target
-        with:
-          app-id: ${{ secrets.BGE_ACTIONS_APP_ID }}
-          private-key: ${{ secrets.BGE_ACTIONS_PRIVATE_KEY }}
-          owner: ${{ github.repository_owner }}
       - uses: googleapis/release-please-action@v4
         id: release
         with:
-          token: ${{ steps.app-token-target.outputs.token }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           release-type: node
       - uses: actions/checkout@v4
         if: ${{ steps.release.outputs.release_created }}
