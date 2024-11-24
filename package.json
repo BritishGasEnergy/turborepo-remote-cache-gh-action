@@ -1,6 +1,6 @@
 {
   "name": "turborepo-remote-cache-gh-action",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "A GitHub action which runs a ducktors/turborepo-remote-cache server.",
   "license": "MIT",
   "author": "Trappar <jeff.way@me.com>",
