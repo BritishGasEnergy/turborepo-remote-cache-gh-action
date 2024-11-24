@@ -63,14 +63,14 @@ jobs:
           # Expect no cache entries
           [ ! -d "/tmp/turbo-cache/ci" ] || exit 1
 
-          npm run turbo turbo:test > /tmp/turbo-output
+          npx turbo turbo:test > /tmp/turbo-output
 
           # Expect a single cache entry
           [ $(find /tmp/turbo-cache/ci -type f | wc -l) -eq 1 ] || exit 1
 
       - name: Rerun turbo:test with turbo and expect cache to be used
         run: |
-          npm run turbo turbo:test > /tmp/turbo-output
+          npx turbo turbo:test > /tmp/turbo-output
           grep "Remote caching enabled" /tmp/turbo-output > /dev/null
           grep "1 cached, 1 total" /tmp/turbo-output > /dev/null
           grep "FULL TURBO" /tmp/turbo-output > /dev/null
