@@ -9,15 +9,16 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
+        with:
+          fetch-depth: 1
       - name: Setup
         uses: ./.github/actions/setup
 
       - name: Run Lint
-        run: pnpm lint
+        run: npm run lint
 
       - name: Build
-        run: pnpm build
+        run: npm run build
 
       - name: Check working copy
         run: git diff --exit-code
@@ -41,7 +42,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      
+
       - name: Setup
         uses: ./.github/actions/setup
 
@@ -50,26 +51,26 @@ jobs:
         with:
           storage-provider: local
           storage-path: turbo-cache
-      
+
       - name: Ensure environmental variables have been set correctly
         run: |
           echo $TURBO_API | grep -P "^http://0.0.0.0:\d+$"
           echo $TURBO_TOKEN | grep -P "^[a-zA-Z0-9]{48}$"
           echo $TURBO_TEAM | grep -P "^ci$"
-      
+
       - name: Run turbo:test with turbo and expect no cache
         run: |
           # Expect no cache entries
           [ ! -d "/tmp/turbo-cache/ci" ] || exit 1
 
-          pnpm turbo turbo:test > /tmp/turbo-output
+          npx turbo turbo:test > /tmp/turbo-output
 
           # Expect a single cache entry
           [ $(find /tmp/turbo-cache/ci -type f | wc -l) -eq 1 ] || exit 1
-      
+
       - name: Rerun turbo:test with turbo and expect cache to be used
         run: |
-          pnpm turbo turbo:test > /tmp/turbo-output
+          npx turbo turbo:test > /tmp/turbo-output
           grep "Remote caching enabled" /tmp/turbo-output > /dev/null
           grep "1 cached, 1 total" /tmp/turbo-output > /dev/null
           grep "FULL TURBO" /tmp/turbo-output > /dev/null
@@ -82,7 +83,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      
+
       - name: Setup
         uses: ./.github/actions/setup
 
@@ -93,7 +94,7 @@ jobs:
         with:
           storage-provider: asdf
           storage-path: asdf
-      
+
       - name: Error if prior step succeeded
         if: steps.run-turbo.outcome == 'success'
         run: exit 1
