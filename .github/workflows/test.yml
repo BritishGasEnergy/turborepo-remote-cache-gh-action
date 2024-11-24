@@ -15,10 +15,10 @@ jobs:
         uses: ./.github/actions/setup
 
       - name: Run Lint
-        run: pnpm lint
+        run: npm run lint
 
       - name: Build
-        run: pnpm build
+        run: npm run build
 
       - name: Check working copy
         run: git diff --exit-code
@@ -63,14 +63,14 @@ jobs:
           # Expect no cache entries
           [ ! -d "/tmp/turbo-cache/ci" ] || exit 1
 
-          pnpm turbo turbo:test > /tmp/turbo-output
+          npm run turbo turbo:test > /tmp/turbo-output
 
           # Expect a single cache entry
           [ $(find /tmp/turbo-cache/ci -type f | wc -l) -eq 1 ] || exit 1
 
       - name: Rerun turbo:test with turbo and expect cache to be used
         run: |
-          pnpm turbo turbo:test > /tmp/turbo-output
+          npm run turbo turbo:test > /tmp/turbo-output
           grep "Remote caching enabled" /tmp/turbo-output > /dev/null
           grep "1 cached, 1 total" /tmp/turbo-output > /dev/null
           grep "FULL TURBO" /tmp/turbo-output > /dev/null
