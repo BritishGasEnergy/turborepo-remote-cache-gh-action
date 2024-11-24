@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.0.0 (2024-11-24)
+
+
+### ⚠ BREAKING CHANGES
+
+* release version 2 ([#2](https://github.com/BritishGasEnergy/turborepo-remote-cache-gh-action/issues/2))
+
+### Features
+
+* release version 2 ([#2](https://github.com/BritishGasEnergy/turborepo-remote-cache-gh-action/issues/2)) ([778c513](https://github.com/BritishGasEnergy/turborepo-remote-cache-gh-action/commit/778c513cf35c51036ebcbe53b8ff55eadff7bdfa))
+
+## Changelog
+
 All notable changes to this project will be documented in this file.
 
 ## V2
