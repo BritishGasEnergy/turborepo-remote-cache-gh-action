@@ -1,7 +1,7 @@
 on:
-push:
-  branches:
-    - main
+  push:
+    branches:
+      - main
 
 name: Release Please
 concurrency: turborepo-remote-cache-gh-action-release-please
