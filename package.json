@@ -6,6 +6,7 @@
   "author": "Trappar <jeff.way@me.com>",
   "type": "module",
   "scripts": {
+    "prepare": "is-ci || husky install",
     "lint": "eslint src/**/*",
     "clean": "rimraf dist",
     "build": "npm-run-all clean --parallel build:*",
@@ -23,9 +24,14 @@
   "devDependencies": {
     "@vercel/ncc": "^0.38.1",
     "eslint": "^8.56.0",
+    "husky": "^9.1.7",
+    "is-ci": "^3.0.1",
     "npm-run-all": "^4.1.5",
     "rimraf": "^5.0.5",
-    "turbo": "^1.12.4",
-    "turborepo-remote-cache": "^2.0.8"
-  }
+    "turbo": "^2.3.1",
+    "turborepo-remote-cache": "^2.2.5",
+    "@commitlint/cli": "^19.6.0",
+    "@commitlint/config-conventional": "^19.6.0"
+  },
+  "packageManager": "npm@10.8.1"
 }
