@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.2](https://github.com/BritishGasEnergy/turborepo-remote-cache-gh-action/compare/v2.0.1...v2.0.2) (2024-11-25)
+
+
+### Bug Fixes
+
+* diff workflow and turbo version ([#7](https://github.com/BritishGasEnergy/turborepo-remote-cache-gh-action/issues/7)) ([f2390de](https://github.com/BritishGasEnergy/turborepo-remote-cache-gh-action/commit/f2390de3b78fd0979b444e67b01a512c98d33135))
+
 ## [2.0.1](https://github.com/BritishGasEnergy/turborepo-remote-cache-gh-action/compare/v2.0.0...v2.0.1) (2024-11-24)
 
 
