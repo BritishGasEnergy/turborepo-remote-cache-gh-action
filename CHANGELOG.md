@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.0.1](https://github.com/BritishGasEnergy/turborepo-remote-cache-gh-action/compare/v3.0.0...v3.0.1) (2026-03-26)
+
+
+### Bug Fixes
+
+* **actions:** pin actions to commit hash and fix vulns ([#17](https://github.com/BritishGasEnergy/turborepo-remote-cache-gh-action/issues/17)) ([dd27060](https://github.com/BritishGasEnergy/turborepo-remote-cache-gh-action/commit/dd27060c8b95756d126d591009dac817b0bab736))
+
 ## [3.0.0](https://github.com/BritishGasEnergy/turborepo-remote-cache-gh-action/compare/v2.0.2...v3.0.0) (2025-12-01)
 
 
