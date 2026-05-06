@@ -1,5 +1,13 @@
 # Changelog
 
+## [3.0.2](https://github.com/BritishGasEnergy/turborepo-remote-cache-gh-action/compare/v3.0.1...v3.0.2) (2026-05-06)
+
+
+### Bug Fixes
+
+* **deps:** address critical security vulnerabilities ([#22](https://github.com/BritishGasEnergy/turborepo-remote-cache-gh-action/issues/22)) ([82241c4](https://github.com/BritishGasEnergy/turborepo-remote-cache-gh-action/commit/82241c45fff2cfa99100069484f45e097a6245d8))
+* **workflows:** add workflow permissions ([#24](https://github.com/BritishGasEnergy/turborepo-remote-cache-gh-action/issues/24)) ([16c170b](https://github.com/BritishGasEnergy/turborepo-remote-cache-gh-action/commit/16c170b576536b4442f5b68a327549ef3411d8b9))
+
 ## [3.0.1](https://github.com/BritishGasEnergy/turborepo-remote-cache-gh-action/compare/v3.0.0...v3.0.1) (2026-03-26)
 
 
