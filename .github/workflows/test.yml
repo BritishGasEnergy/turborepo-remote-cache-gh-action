@@ -3,6 +3,11 @@ on: push
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
+
+permissions:
+  contents: read
+  checks: write
+
 jobs:
   lint-build-verify:
     runs-on: ubuntu-latest
